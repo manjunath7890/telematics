@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/toorshia/justgage@1.4.1/justgage.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <!-- <script async defer src='https://maps.googleapis.com/maps/api/js?key="AIzaSyA62o6sLEuFbYM_pG9lyu3I7Q8NT5MJmgc"&callback=initMap'></script> -->
+    
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    <!-- <link rel="stylesheet" href="left_nav.css"> -->
+    <!-- <link rel="stylesheet" href="top_nav.css"> --> 
+    <style> 
+      .graph-motion {
+       width:650px; 
+       height:150px;
+       margin-bottom: 10px;
+       margin-left: 10px;
+       border-radius: 5px;
+     }
+     
+     .nav-labels-2 {
+       display: block;
+       color: #00ff80;
+       text-decoration: none;
+       font-size: 20px;
+     }
+     .nav-labels-3 {
+       display: block;
+       color: #ffffff;
+       text-decoration: none;
+       font-size: 20px;
+     }
+     .nav-labels-4 {
+       display: block;
+       color: #ffffff;
+       text-decoration: none;
+       font-size: 20px;
+     }
+     .nav-labels-5 {
+       display: block;
+       color: #ffffff;
+       text-decoration: none;
+       font-size: 20px;
+     }
+     .nav-labels-6 {
+       display: block;
+       color: #ffffff;
+       text-decoration: none;
+       font-size: 20px;
+     }
+     .nav-labels-7 {
+       display: block;
+       color: #ffffff;
+       text-decoration: none;
+       font-size: 20px;
+     }
+     .nav-labels-8 {
+       display: block;
+       color: #ffffff;
+       text-decoration: none;
+       font-size: 20px;
+     }
+     .nav-labels-9 {
+       display: block;
+       color: #ffffff;
+       text-decoration: none;
+       font-size: 20px;
+     } 
+     #switch-val {
+         background-color: rgb(255, 23, 23);
+         color: whitesmoke;
+         width: 100px;
+         border: 5px solid rgb(179, 0, 0);
+         height: 50px;
+         border-radius: 25px;
+         font-size: 25px;
+         margin-right: 1180px;
+         }
+     
+     .top-navbar {
+         background-color: #414141;
+         height: 70px;
+         position: fixed;
+         top: 0;
+         left: 0;
+         right: 0;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 0 20px;
+         border-bottom: 10px solid black;
+         }
+     .logo {
+         width: 250px;
+         height: 56px;
+         background-color: #545252;
+         border-radius: 25px;
+         display: flex;
+         padding: 0px;
+         box-shadow: 0 4px 0px rgb(0 0 0 / 50%), 0 0 20px rgb(0 0 0 / 30%);
+     }
+     .navbar-toggle {
+         background-color: #6e6b6b;
+         color: #fff;
+         border: 3px solid #6e6b6b;
+         font-size: 20px;
+         cursor: pointer;
+         padding: 16px;
+         border-radius: 14px;
+         margin: 10px;
+         box-shadow: 0 5px 5px rgb(0 0 0 / 50%), 0 0 20px rgb(0 0 0 / 30%);
+       }
+     .name {
+         color: white;
+         font-size: 23px;
+         font-family: 'Ubuntu', sans-serif;
+         /* border: 4px solid #6e6b6b; */
+         margin-top: 6px;
+         margin-bottom: 6px;
+         padding-bottom: 0px;
+         padding-top: 5px;
+         padding-left: 10px;
+         padding-right: 10px;
+         border-radius: 10px;
+         /* background-color: #6e6b6b; */
+         /* box-shadow: 0 0 8px rgb(0 0 0 / 50%), 0 0 20px rgb(0 0 0 / 30%); */
+     }  
+     .nav-labels-1 {
+       border-bottom: 5px solid rgb(74 74 74);
+       padding-top: 12px;
+       padding-bottom: 12px;
+       border-radius: 0px;
+       background-color: rgb(40 40 40);
+       /* box-shadow: 0 0 8px rgb(153 153 153 / 50%), 0 0 20px rgb(255 255 255 / 30%); */
+       text-align: center;
+     
+     }
+     .nav-labels-block {
+         border: 2px solid rgb(62 61 61);
+         padding-left: 13px;
+         padding-top: 11px;
+         /* padding-bottom: -3px; */
+         border-radius: 7px;
+         background-color: rgb(24, 24, 24);
+         padding-right: 13px;
+         /* box-shadow: 0 0 10px rgba(153, 153, 153, 0.5), 0 0 20px rgba(255, 255, 255, 0.3); */
+         text-align: center;
+         /* margin-bottom: 10px; */
+     
+     } 
+     .nav-labels-2:hover {
+         background-color: #2e2e2e;
+         color: rgb(0, 252, 147);
+         padding-top: 12px;
+         padding-bottom:18px;
+         /* border-radius: 10px; */
+         /* margin-left:20px; */
+         /* margin-right:20px; */
+     }
+     /* .nav-labels-2 {
+       background-color: #2e2e2e;
+       color: rgb(255, 255, 255); */
+       /* padding-top: 12px; */
+       /* padding-bottom:18px; */
+       /* border-radius: 10px; */
+       /* margin-left:20px; */
+       /* margin-right:20px; */
+       /* border-bottom: 1.5px solid rgb(100 100 100); */
+       /* padding-right: 20px; */
+       /* padding-top: 15px;
+       padding-bottom: 15px;
+       border-radius: 0px;
+       text-align: center;
+     } */
+     .nav-labels-3:hover {
+       background-color: #2e2e2e;
+       color: rgb(0, 252, 147);
+       padding-top: 12px;
+       padding-bottom:18px;
+     }
+     .nav-labels-4:hover {
+       background-color: #2e2e2e;
+       color: rgb(0, 252, 147);
+       padding-top: 12px;
+       padding-bottom:18px;
+     }
+     .nav-labels-5:hover {
+       background-color: #2e2e2e;
+       color: rgb(0, 252, 147);
+       padding-top: 12px;
+       padding-bottom:18px;
+     }
+     .nav-labels-6:hover {
+       background-color: #2e2e2e;
+       color: rgb(0, 252, 147);
+       padding-top: 12px;
+       padding-bottom:18px;
+     }
+     .nav-labels-7:hover {
+       background-color: #2e2e2e;
+       color: rgb(0, 252, 147);
+       padding-top: 12px;
+       padding-bottom:18px;
+     }
+     .nav-labels-8:hover {
+       background-color: #2e2e2e;
+       color: rgb(0, 252, 147);
+       padding-top: 12px;
+       padding-bottom:18px;
+     }
+     .nav-labels-9:hover {
+       background-color: #2e2e2e;
+       color: rgb(0, 252, 147);
+       padding-top: 12px;
+       padding-bottom:18px;
+     }
+     .nav-labels-common {
+       border-bottom: 1.5px solid rgb(100 100 100);
+       /* padding-right: 20px; */
+       padding-top: 15px;
+       padding-bottom: 15px;
+       border-radius: 0px;
+       text-align: center;
+         /* background-color: rgb(26, 25, 25); */
+         /* margin-left: 21px; */
+         /* margin-right: 20px; */
+     }   
+     /* .navbar-toggle img {
+         width: 30px;
+         height: 28px;
+         border:  0px solid rgb(0, 0, 0);
+         border-radius: 30px;
+     } */
+     
+     .left-navbar {
+         background-color: #414141;
+         height: 100%;
+         width: 230px;
+         position: fixed;
+         top: 70px;
+         left: -230px;
+         /* padding-left: 3px;
+         padding-right: 3px; */
+         /* padding-top: 10px; */
+         padding-bottom: 20px;
+         transition: left 0.3s ease-in-out;
+         border-right: 10px solid #313131;
+         border-left: 10px solid #313131;
+         
+     }
+     
+     .left-navbar.open {
+        left: 0;
+        /* padding-top: 20px; */
+        box-shadow: inset 0 0 30px rgba(0, 0, 0, 1);
+     }
+     
+     .left-navbar ul {
+        /* margin-bottom: 30px; */
+        margin-top: 0px;
+        padding-inline-start: initial;
+        margin-bottom: auto;
+     
+     }
+     
+     /* .left-navbar li {
+       margin-bottom: 10px;
+     } */
+     
+     /* .left-navbar a {
+       display: block;
+       color: #fff;
+       text-decoration: none;
+       font-size: 20px;
+     } */
+     .nav-labels-1 {
+       display: block;
+       color: #fff9f9;
+       text-decoration: none;
+       font-size: 20px;
+     }
+     
+     
+       
+     
+     /* @media screen and (max-width: 768px) {
+       .left-navbar {
+         width: 100%;
+         position: static;
+         margin: 0;
+         padding: 0;
+         box-shadow: none;
+         background-color: #333;
+       }
+       
+       .navbar-content, .navbar-right-content {
+         display: none;
+       }
+        */
+        
+      
+        .temp-text {
+             font-size:20px;
+         }
+         .dash-title{
+         margin-left: 40px;
+         font-size: 45px;
+         text-align: center;
+         margin-bottom: 10px;
+         }
+         .main-content {
+         padding: 20px;
+         margin-top: 80px;
+         margin-left: 200px;
+         margin-top: 50px;
+         margin-left: 210px;
+         color: #f9f9f9;
+     
+         }
+         .container {
+             display: flex;
+         }
+         .values {
+               
+               margin-left: 20px;
+               margin-top: 10px ;
+         }
+         .value-block-2 {
+             margin-left: 10px;
+         }
+         .ind-val-main {
+         display: flex;
+         /* border: 2px solid hwb(48deg 43% 56%); */
+         border-radius: 5px;
+         color: rgb(255, 255, 255);
+         background-color: rgb(44 44 44);
+         padding-left: 21px;
+         padding-right: 51px;
+         padding-bottom: 40px;
+         padding-top: 40px;
+         margin-left: 11px;
+         margin-bottom: 8px;
+         margin-top: 10px;
+         /* box-shadow: 0 0 8px rgb(160 123 247), 0 0 20px rgb(230 222 233 / 30%);*/
+         }
+         .ind-val-voltage {
+         display: flex;
+         border: 5px solid #2d77ff;
+         border-radius: 10px;
+         color: rgb(255, 255, 255);
+         background-color: rgb(13, 1, 190);
+         /* position: absolute; */
+         padding-left: 10px;
+         padding-right: 0px;
+         padding-bottom: 10px;
+         padding-top: 10px;
+         margin-left: 10px;
+         margin-bottom: auto;
+         margin-top: auto;
+         margin-left: 10px;
+          /* box-shadow: 0 0 8px rgb(153 153 153 / 50%), 0 0 20px rgb(255 255 255 / 30%); */
+         }
+         .ind-val-current {
+         display: flex;
+         border: 5px solid #ff4545;
+         border-radius: 10px;
+         color: rgb(255, 255, 255);
+         background-color: rgb(160, 0, 0);
+         padding-left: 10px;
+         padding-right: 0px;
+         padding-bottom: 10px;
+         padding-top: 10px;
+         margin-left: 10px;
+         margin-bottom: auto;
+         margin-top: auto;
+         margin-left: 31px;
+          /* box-shadow: 0 0 8px rgb(153 153 153 / 50%), 0 0 20px rgb(255 255 255 / 30%); */
+         }
+         .ind-val-soc {
+         display: flex;
+         border: 5px solid #ffd310;
+         border-radius: 10px;
+         color: rgb(255, 255, 255);
+         background-color: rgb(216, 142, 4);
+         padding-left: 10px;
+         padding-right: 0px;
+         padding-bottom: 10px;
+         padding-top: 10px;
+         margin-left: 10px;
+         margin-bottom: auto;
+         margin-top: auto;
+         margin-left: 31px;
+          /* box-shadow: 0 0 8px rgb(153 153 153 / 50%), 0 0 20px rgb(255 255 255 / 30%); */
+         }
+         .ind-val-power {
+         display: flex;
+         border: 5px solid #4cfc63;
+         border-radius: 10px;
+         color: rgb(255, 255, 255);
+         background-color: rgb(1, 150, 8);
+         /* position: fixed; */
+         padding-left: 10px;
+         padding-right: 0px;
+         padding-bottom: 10px;
+         padding-top: 10px;
+         margin-left: 10px;
+         margin-bottom: auto;
+         margin-top: auto;
+         margin-left: 31px;
+          /* box-shadow: 0 0 8px rgb(153 153 153 / 50%), 0 0 20px rgb(255 255 255 / 30%); */
+         }
+         .ind-val-main-temp {
+          /* border: 5px solid hwb(0 44% 56%); */
+         border-radius: 5px;
+         color: rgb(255, 255, 255);
+         background-color: rgb(44, 44, 44);
+         padding-left: 21px;
+         padding-right: 27px;
+         padding-bottom: 27px;
+         padding-top: 11px;
+         /* margin-left: 37px; */
+         margin-bottom: auto;
+         margin-top: -10px;
+         /* box-shadow: 0 0 8px rgb(153 153 153 / 50%), 0 0 20px rgb(255 255 255 / 30%);*/
+         }
+         .ind-val-2 {
+         border: 3.5px solid #000000;
+         margin-bottom: 3px;
+         padding-left: 10px;
+         }
+         .block-2{
+         display: flex;
+         margin-left: 21px;
+         margin-top: 7px;
+         /* margin-bottom: 10px; */
+         }
+         .ind-val-2-c{
+             display: flex;   
+         }
+         .ind-val-2-m{
+             display: flex;   
+         }
+         .ind-val-2-a{
+             display: flex;   
+         }
+     
+         /* .ind-val-guage-rpm {
+             border: 5px solid #2e2e2e;
+         border-radius: 5px;
+         color: rgb(255, 255, 255);
+         background-color: rgb(44 44 44);
+         padding-bottom: 20px;
+         padding-top: 10px;
+         margin-left: 10px;
+         margin-top: auto;
+         margin-bottom: 10px;
+         } */
+         .ind-val-guage-slope {
+         border: 5px solid #2e2e2e;
+         border-radius: 5px;
+         color: rgb(255, 255, 255);
+         background-color: rgb(44 44 44);
+         padding-bottom: 20px;
+         padding-top: 10px;
+         margin-left: 10px;
+         margin-top: auto;
+         margin-bottom: 10px;
+         }
+         .ind-val-guage-speed {     
+         border: 5px solid #2e2e2e;
+         border-radius: 5px;
+         color: rgb(255, 255, 255);
+         background-color: rgb(44 44 44);
+         padding-bottom: 20px;
+         padding-top: 10px;
+         margin-left: 10px;
+         margin-top: auto;
+         margin-bottom: 10px;
+         }
+         /* .ind-val-guage-soc {
+         border: 5px solid #c3c3ff;
+         border-radius: 22px;
+         color: rgb(255, 255, 255);
+         background-color: rgb(250, 109, 109);
+         padding-left: -5px;
+         padding-right: -9px;
+         padding-bottom: 5px;
+         padding-top: 15px;
+         margin-left: 13px;
+         } */
+         .val-rpm {
+             margin-left: 130px;
+             font-size: 18px;
+             font-family: Arial, sans-serif;
+             font: weight bold;
+         }
+         .val-slope {
+             margin-left: 130px;
+             font-size: 18px;
+             font-family: Arial, sans-serif;
+             font: weight bold;
+         }
+         .val-speed {
+             margin-left: 120px;
+             font-size: 18px;
+             font-family: Arial, sans-serif;
+             font: weight bold;
+         }
+         .val-SOC {
+             margin-left: 130px;
+             margin-top: 10px;
+             font-size: 18px;
+             font-family: Arial, sans-serif;
+             font: weight bold;
+         }
+         body {
+             background-color: rgb(0, 0, 0);
+         }
+         .value-bat {
+             font-size: 86px;
+             margin: -21px;
+             margin-left: 12px;
+             padding-bottom: -4px;
+             font-family: Arial, sans-serif;
+             font-weight: 1000;
+         }
+         .value-temp {
+         font-size: 25px;
+         /* margin: 5px; */
+         /* margin-left: 20px; */
+         padding-bottom: 0px;
+         font-family: Arial, sans-serif;
+         font-weight: 1000;
+         margin: auto;
+         padding-left: 10px;
+         }
+         #value-name-unit {
+             margin-left: 30px;
+             margin-right: 10px;
+         } 
+         #value-name-unit-temp {
+         margin-left: 15px;
+         margin-right: 10px;
+         padding: 8px;
+         margin: auto;
+         }
+           
+     .main {
+         display: flex;  
+     }
+      /* #map{
+         height: 250px;
+         width: 1287px;
+         background-color: #2e2e2e;
+         border-radius: 5px;
+         margin-left: 30px;
+         margin-bottom: 10px;
+     } */
+     .main-graph {
+         width:800px; 
+         height: 300px;
+         margin-bottom: 10px;
+         margin-left: 30px;
+         border-radius: 5px;
+         color: #ffffff;
+     } 
+       canvas {
+        background-color: rgb(44, 44, 44);
+            
+     }
+     </style>
+</head>
+<body>
+<nav class="top-navbar">
+  <div class="logo">
+  <button class="navbar-toggle"></button>
+  <div class="name">logo</div>
+  </div>
+  <button onclick="callBylnkAPI()" id="switch-val">OFF</button>
+</nav>
+<div class="left-navbar">
+
+  <ul class="nav-labels">
+    <div >
+    <li><a class="nav-labels-1">template</a></li>   
+    <li><a class="nav-labels-2 nav-labels-common" href="/">Dashboard</a></li>
+    <li><a class="nav-labels-3 nav-labels-common" href="/graphs">Graphs</a></li>
+    <li><a class="nav-labels-4 nav-labels-common" href="/map">Map</a></li>
+    <li><a class="nav-labels-5 nav-labels-common" href="/battery">Battery</a></li>
+    </div>
+  </ul>
+  <ul class="nav-labels">
+    <div >
+    <li><a class="nav-labels-6 nav-labels-common" href="/rawdata">Raw-Data</a></li>
+    <li><a class="nav-labels-7 nav-labels-common" href="/documents">Documents</a></li>
+    <li><a class="nav-labels-8 nav-labels-common" href="/organization">Blog</a></li>
+    <li><a class="nav-labels-9 nav-labels-common" href="/about">About</a></li>
+    </div>
+  </ul>
+</div>
+<div class="main-content">
+    <div id="map-container" class="values value-blocks-1">
+        <div class="ind-val-main">
+         <a class="ind-val-voltage">
+             <p>voltage:</p>
+             <p class="value-bat" ID="value-v0">00</p>
+             <p ID="value-name-unit">V</p>             
+        </a>
+        <a class="ind-val-current">
+             <p>current:</p>
+             <p class="value-bat" ID="value-v1">00</p>
+             <p ID="value-name-unit">A</p> 
+        </a> 
+            
+         <a class="ind-val-soc">
+             <p>SOC:</p>
+             <p class="value-bat" ID="value-v2">00</p>
+             <p ID="value-name-unit">%</p> 
+        </a> 
+        <a class="ind-val-power">
+             <p>wat-hr/km:</p>
+             <p class="value-bat" ID="value-v33">00</p>
+             <p ID="value-name-unit"></p> 
+        </a> 
+        </div>  
+    </div>
+    <div class="block-2">
+        <div id="map-container" class="values value-block-2 ">
+            <div class="ind-val-main-temp">
+            <a class="ind-val-2 ind-val-2-c">
+                 <p class="temp-text">Controller Temperature:</p>
+                 <p class="value-temp" ID="value-v3">00</p>
+                 <p ID="value-name-unit-temp">°C</p>             
+            </a>
+            <a class="ind-val-2 ind-val-2-m">
+                 <p class="temp-text">Motor Temperature:</p>
+                 <p class="value-temp" ID="value-v4">00</p>
+                 <p ID="value-name-unit-temp">°C</p> 
+            </a>  
+            <a class="ind-val-2 ind-val-2-a">
+                <p class="temp-text">Ambient Temperature:</p>
+                <p class="value-temp" ID="value-v5">00</p>
+                <p ID="value-name-unit-temp">°C</p> 
+            </a>
+            <a class="ind-val-2 ind-val-2-a">
+                <p class="temp-text">RPM:</p>
+                <p class="value-temp" ID="value-v32">00</p>
+                <p ID="value-name-unit-temp"></p> 
+            </a>
+            <a class="ind-val-2 ind-val-2-a">
+                <p class="temp-text">Distance:</p>
+                <p class="value-temp" ID="value-v7">00</p>
+                <p ID="value-name-unit-temp">km</p> 
+            </a>
+            <a class="ind-val-2 ind-val-2-a">
+                <p class="temp-text">Error-Code:</p>
+                <p class="value-temp" ID="value-v45">00</p>
+                <p ID="value-name-unit-temp"></p> 
+            </a>
+            </div>
+            </div>
+            <div style="margin-bottom: 0px;">
+            <div class="ind-val-guage ind-val-guage-speed">
+                <div id="value-v67" ></div>
+                <div class="val-speed">Speed</div>
+            </div>
+            <div class="ind-val-guage ind-val-guage-slope">
+                <div id="value-v317" ></div>
+                <div class="val-slope">Slope</div>
+            </div>
+        </div>
+        <div>
+            <canvas id="myChart-speedDist" class="graph-motion" width="650" height="215"></canvas>           
+            <canvas id="myChart-slope" class="graph-motion" width="650" height="215"></canvas>    
+        </div>   
+    </div>
+    <div >
+    <div id='map'></div>
+    </div>
+    <div style="display:flex;">
+    
+    
+    <canvas id="myChart" class="main-graph" width="-100px" height="0px"></canvas>
+    </div>
+    <p ID="value-v31"></p>
+    <p ID="value-v6"></p> 
+</div>
+<script >
+
+// const fs = require('fs');
+  // const moment = require('moment');
+  // const xlsx = require('xlsx');
+  
+  
+  const auth_token = 'bSvBiL0rQOf1CJevfESAOGN-gbLg_6OI';
+  const pins = ['v0','v1', 'v2', 'v3', 'v4', 'v5', 'v6', 'v7', 'v32', 'v31', 'v33'];
+  const pin_val =[];
+  // Function to update the pin value in the HTML
+  function updatePinValue(pin, value) {
+    const element = document.querySelector(`#value-${pin}`);
+    // element.innerHTML = parseInt(value);
+    element.innerHTML = value;
+    // console.log(pin);
+  }
+  
+  // Function to fetch the pin value from the Blynk API
+  function fetchPinValue(pin) {
+    return axios.get(`https://blr1.blynk.cloud/external/api/get?token=${auth_token}&${pin}`)
+      .then(response => {
+        return response.data;
+        
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+  
+  // Function to fetch all the pin values and update the HTML/external/api/get?token={auth_token}&{pin}
+  function fetchAllPinValues() {
+    const promises = [];
+  
+    pins.forEach(pin => {
+      promises.push(fetchPinValue(pin));
+    });
+  
+    axios.all(promises)
+      .then(responses => {
+        responses.forEach((response, index) => {
+          updatePinValue(pins[index], response);
+          pin_val[index] = response;
+          console.log(pin_val);
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+  
+  // Call the fetchAllPinValues function on page load and every 10 seconds
+  fetchAllPinValues();
+  setInterval(fetchAllPinValues, 1000);
+  
+  const navbar = document.querySelector('.left-navbar');
+  const navbarToggle = document.querySelector('.navbar-toggle');
+  
+  navbarToggle.addEventListener('click', function() {
+    navbar.classList.toggle('open');
+  });
+  
+  var Switch = 0;
+  
+  function callBylnkAPI() {
+    if(Switch == 0)
+    {
+       const apiEndpoint = 'https://blr1.blynk.cloud/external/api/update?token=bSvBiL0rQOf1CJevfESAOGN-gbLg_6OI&v9=0';
+       Switch = 1;
+       const element = document.querySelector(`#switch-val`);
+       element.innerHTML = "OFF";
+       element.style.backgroundColor = 'black';
+       element.style.color= "aqua";
+       element.style.width= "400px";
+       element.style.backgroundColor= '#ff1717';
+       element.style.color= 'whitesmoke';
+       element.style.width= '100px';
+       element.style.border= '5px solid #b30000';
+       element.style.height= '50px';
+       element.style.borderRadius= '25px';
+       element.style.fontSize= '25px';
+  
+       fetch(apiEndpoint, {
+  
+    })
+    }
+    else
+    {
+       const apiEndpoint = 'https://blr1.blynk.cloud/external/api/update?token=bSvBiL0rQOf1CJevfESAOGN-gbLg_6OI&v9=1';
+       Switch = 0;
+       const element = document.querySelector(`#switch-val`);
+       element.innerHTML = "ON";
+       element.style.backgroundColor= 'rgb(0 197 57)';
+       element.style.color= 'whitesmoke';
+       element.style.width= '100px';
+       element.style.border= '5px solid rgb(3 139 50)';
+       element.style.height= '50px';
+       element.style.borderRadius= '25px';
+       element.style.fontSize= '25px';
+  
+       fetch(apiEndpoint, {
+    })
+    } 
+  }
+  
+  
+  
+  // Define the variables you want to store
+  // const var1 = 1;
+  // const var2 = 2;
+  // const var3 = 3;
+  // const var4 = 4;
+  // const var5 = 5;
+  // const var6 = 6;
+  // const var7 = 7;
+  // const var8 = 8;
+  // const var9 = 9;
+  // const var10 = 10;
+  
+  // // Define a function that writes the data to the Excel file
+  // function writeDataToExcel() {
+  //   const currentDate = moment().format('YYYY-MM-DD');
+  //   const data = [[currentDate, var1, var2, var3, var4,var5, var6, var7, var8, var9, var10]];
+  
+  //   // Check if the current date is different from the date in the filename
+  //   const filename = `variables-${currentDate}.xlsx`;
+  //   fs.stat(filename, (err, stats) => {
+  //     if (err) {
+  //       // Create a new file if it doesn't exist
+  //       if (err.code === 'ENOENT') {
+  //         const wb = xlsx.utils.book_new();
+  //         const ws = xlsx.utils.aoa_to_sheet(data);
+  //         xlsx.utils.book_append_sheet(wb, ws, 'Sheet1');
+  //         xlsx.writeFile(wb, filename);
+  //         console.log(`New file ${filename} created with data: ${data}`);
+  //       } else {
+  //         throw err;
+  //       }
+  //     } else {
+  //       // Load the data from the previous file and append the new data
+  //       const wb = xlsx.readFile(filename);
+  //       const ws = wb.Sheets['Sheet1'];
+  //       const previousData = xlsx.utils.sheet_to_json(ws, {header: 1, raw: false});
+  //       const newData = previousData.concat(data);
+  //       ws['!ref'] = `A1:J${newData.length}`;
+  //       xlsx.utils.sheet_add_aoa(ws, newData, {origin: 'A1'});
+  //       xlsx.writeFile(wb, filename);
+  //       console.log(`File ${filename} updated with data: ${data}`);
+  //     }
+  //   });
+  // }
+  
+  // // Call the function every second using setInterval()
+  // setInterval(writeDataToExcel, 1000);
+  </script>
+<script >
+var time = [];
+  var voltage = [];
+  var current = [];
+  var soc = [];
+  var speed = [];
+  var rpm = [];
+  var distance = [];
+  var slope = [];
+  var c_temp = [];
+  var m_temp = [];
+  const myDiv = document.querySelector('#myChart');
+  myDiv.style.width = '200px';
+  
+  var ctx_full = document.getElementById('myChart').getContext('2d');
+  var myChart_full= new Chart(ctx_full, {
+    type: 'line',
+    data: {
+      labels: time,
+      datasets: [
+      
+        {
+          label: 'current',
+          
+          backgroundColor: 'rgba(226, 109, 250, 0.1)',
+          borderColor: 'rgba(226, 109, 250, 1)',
+          borderWidth: 6,
+          fill: 'origin',
+          data: current,
+          pointRadius: 0,
+          
+        },
+      ],
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Temperature and Humidity Across Time (Real-time)',
+      },
+      scales: {
+        xAxes: [{
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: 'Time', 
+            weight: 'bold',         
+          }, 
+  
+          type: 'time',
+          time: {
+            unit: 'second',
+            displayFormats: {
+              second: 'h:mm:ss'
+            },
+            tooltipFormat: 'h:mm:ss',
+          }
+        }],
+  
+        yAxes: [{
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: 'Temperature and Humidity',
+            
+          },
+  
+          ticks: {
+            suggestedMin: -40,
+            suggestedMax: 1000,
+             
+          }   
+        }]
+      },
+     
+    },
+  });
+  
+  var ctx_slope = document.getElementById('myChart-slope').getContext('2d');
+  var myChart_slope = new Chart(ctx_slope, {
+    type: 'line',
+    data: {
+      labels: time,
+      datasets: [
+        {
+          label: 'slope', 
+  
+          backgroundColor: 'rgba(237, 154, 38, 0.1)',
+          borderColor: 'rgba(237, 154, 38, 1)',
+          borderWidth: 4,
+          fill: 'origin',
+          data: slope,
+          pointRadius: 0,
+          
+        },
+      ],
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Temperature and Humidity Across Time (Real-time)',
+      },
+      scales: {
+        xAxes: [{
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: 'Time', 
+            weight: 'bold',         
+          }, 
+  
+          type: 'time',
+          time: {
+            unit: 'second',
+            displayFormats: {
+              second: 'h:mm:ss'
+            },
+            tooltipFormat: 'h:mm:ss',
+          }
+        }],
+  
+        yAxes: [{
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: 'Temperature and Humidity',
+            
+          },
+  
+          ticks: {
+            suggestedMin: -90,
+            suggestedMax: 90,
+             
+          }   
+        }]
+      },
+     
+    },
+  });
+  
+  var ctx_speedDist = document.getElementById('myChart-speedDist').getContext('2d');
+  var myChart_speedDist = new Chart(ctx_speedDist, {
+    type: 'line',
+    data: {
+      labels: time,
+      datasets: [
+        {
+          label: 'speed',
+  
+          backgroundColor: 'rgba(95, 236, 158, 0.1)',
+          borderColor: 'rgba(95, 236, 158, 1)',
+          borderWidth: 4,
+          fill: 'origin',
+          data: speed,
+          pointRadius: 0,
+          
+        },
+      ],
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Temperature and Humidity Across Time (Real-time)',
+      },
+      scales: {
+        xAxes: [{
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: 'Time', 
+            weight: 'bold',         
+          }, 
+  
+          type: 'time',
+          time: {
+            unit: 'second',
+            displayFormats: {
+              second: 'h:mm:ss'
+            },
+            tooltipFormat: 'h:mm:ss',
+          }
+        }],
+  
+        yAxes: [{
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: 'Temperature and Humidity',
+            
+          },
+  
+          ticks: {
+            suggestedMin: 0,
+            suggestedMax: 50,
+             
+          }   
+        }]
+      }, 
+    },
+  });
+  
+  function updateChart(timeValue, voltageValue, currentValue, socValue, speedValue, distanceValue, slopeValue, controllerValue, motorValue, rpmValue) {
+    time.push(timeValue);
+    voltage.push(voltageValue);
+    current.push(currentValue);
+    soc.push(socValue);
+    speed.push(speedValue);
+    rpm.push(rpmValue);
+    slope.push(slopeValue);
+    distance.push(distanceValue);
+    c_temp.push(controllerValue);
+    m_temp.push(motorValue);
+  
+    myChart_full.update();
+    myChart_slope.update();
+    myChart_speedDist.update();
+  }
+  
+  function handleNewData(timeValue, voltageValue, currentValue, socValue, speedValue, distanceValue, slopeValue, controllerValue, motorValue, rpmValue) {
+      updateChart(timeValue, voltageValue, currentValue, socValue, speedValue, distanceValue, slopeValue, controllerValue, motorValue, rpmValue);
+  
+      if (time.length > 150) {
+        time.shift();
+        voltage.shift();
+        current.shift();
+        soc.shift();
+        speed.shift();
+        distance.shift();
+        slope.shift();
+        c_temp.shift();
+        m_temp.shift();
+        rpm.shift();
+      }
+  }
+  var gauge2 = new JustGage({ 
+    id: "value-v67",
+    value: 0,
+    min: 0,
+    max: 50,
+    gaugeWidthScale: 1,
+    counter: true,
+    valueFontColor: "#ffffff",
+    levelColors: ["#00f98f", "#00f98f", "#00f98f"],
+    
+  });
+  var gauge3 = new JustGage({
+    id: "value-v317",
+    value: 0,
+    min: -90,
+    max: 90,
+    gaugeWidthScale: 1,
+    counter: true,
+    valueFontColor: "#ffffff",
+    levelColors: ["#ffba00", "#dba001", "#dba001"],
+  });
+  setInterval(function() {
+      var now = new Date();
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+      var nowtime = hours + ":" + minutes + ":" + seconds;
+    handleNewData(nowtime, pin_val[0], pin_val[1], pin_val[2], pin_val[6], pin_val[7], pin_val[9], pin_val[3], pin_val[4], pin_val[8]);
+    gauge2.refresh(pin_val[6]);
+    gauge3.refresh(pin_val[9]);
+    }, 1000);
+  
+  </script>
+<!-- <script src="map.js"></script> -->
+
+
+</body>
+</html>

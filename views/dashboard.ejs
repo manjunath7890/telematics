@@ -1,0 +1,135 @@
+<%- include('navbar') -%>
+
+  <div class="main-content">
+
+    <div id="map-container" class="value value-blocks-1">
+      <div class="combined">
+        <div class="buttons">
+          
+          <p class="value-top" ID="value-v0">00</p>
+        </div>
+
+        <div>
+          <div class="guages" style="display: flex;">
+            <div class="ind-val-guage ind-val-guage-speed">
+              <div id="value-v67" width="200" height="200"></div>
+              <div class="val-speed">Speed</div>
+            </div>
+            <div class="ind-val-guage ind-val-guage-slope">
+              <div id="value-v317"></div>
+              <div class="val-slope">RPM</div>
+            </div>
+          </div>
+          <div class="distance">
+            <p style=" color: #000;margin-right: 20px; margin-left:20px">distance:</p>
+            <p class="value-temp" ID="value-v0"><%= data.value7 %></p>
+            <p ID="value-name-unit">km</p>
+            <p style="color: #000;margin-left:140px; margin-right: 20px;">slope:</p>
+            <p class="value-temp" ID="value-v31"><%= data.value8 %></p>
+          </div>
+        </div>
+      </div>
+      <div id="map-container" class="values value-block-2 ">
+        <div class="ind-val-main-temp">
+          <div style="display:flex;">
+            <div class="status">online</div>
+            <div class='switch'>ON</div>
+          </div>
+          <a class="ind-val-2 ind-val-2-a">
+            <img src="/static/assets/weather.png" alt="img" class="weatherLogo">
+            <p class="value-temperature" id="temperature"><%= data.value9 %></p>
+            <div>
+              <p ID="value-name-unit-temp">°C</p>
+              <p class="value-humidity" id="humidity"><%= data.value10 %></p>
+            </div>
+          </a>
+
+          <a class="ind-val-2 ind-val-2-c">
+            <div>
+              <p class="temp-text">Controller </p>
+              <p class="temp-text">Temperature:</p>
+            </div>
+            <p class="value-temp" ID="value-v3"><%= data.value5 %></p>
+            <p ID="value-name-unit-temp">°C</p>
+          </a>
+          <a class="ind-val-2 ind-val-2-m">
+            <div>
+              <p class="temp-text">Motor </p>
+              <p class="temp-text">Temperature:</p>
+            </div>
+            <p class="value-temp" ID="value-v4"><%= data.value6 %></p>
+            <p ID="value-name-unit-temp">°C</p>
+          </a>
+        </div>
+      </div>
+      <div class="battery">
+        <div class="circle">
+          <div id="gauge"></div>
+        </div>
+        <div class="ind-val-main">
+          <a class="ind-val-voltage">
+            <p class="parameter">voltage:</p>
+            <p class="value-bat" ID="value-v0"><%= data.value1 %></p>
+            <p ID="value-name-unit">V</p>
+          </a>
+          <a class="ind-val-current">
+            <p class="parameter">current:</p>
+            <p class="value-bat" ID="value-v1"><%= data.value2 %></p>
+            <p ID="value-name-unit">A</p>
+          </a>
+
+          <a class="ind-val-soc">
+            <p class="parameter">power:</p>
+            <p class="value-bat" ID="value-v2"><%= data.value3 %></p>
+            <p ID="value-name-unit">W</p>
+          </a>
+          <a class="ind-val-power">
+            <p class="parameter">Error-code:</p>
+            <p class="value-bat" ID="value-v33"><%= data.value4 %></p>
+            <p ID="value-name-unit"></p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="block-2">
+      <div class="graph-border">
+        <canvas id="myChart-speedDist" class="graph-motion" width="500" height="180"></canvas>
+        <canvas id="myChart-slope" class="graph-motion" width="500" height="180"></canvas>
+      </div>
+      <div class="graph-border">
+        <canvas id="current" class="graph-motion" width="500" height="180"></canvas>
+        <canvas id="voltage" class="graph-motion" width="500" height="180"></canvas>
+      </div>
+      <div class="maps"></div>
+    </div>
+    <div>
+      <div id='map'></div>
+    </div>
+    <div style="display:flex;">
+
+
+      <canvas id="myChart" class="main-graph" width="-100px" height="0px"></canvas>
+    </div>
+    <p ID="value-v31"></p>
+    <p ID="value-v6"></p>
+  </div>
+  <!-- <script src="/static/script.js"></script> -->
+  <%- include('dashboard-js') -%>
+  <script>
+    function toggleCSS() {
+  var cssFile1 = '/static/dashboard-dark.css';
+  var cssFile2 = '/static/dashboard-light.css';
+  var link = document.getElementById('css-file');
+  
+  if (link.classList.contains('active')) {
+    link.href = cssFile1;
+    link.classList.remove('active');
+  } else {
+    link.href = cssFile2;
+    link.classList.add('active');
+  }
+}
+    </script>
+
+  <%- include('footer') -%>
