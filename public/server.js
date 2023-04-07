@@ -29,7 +29,7 @@ app.use('/route', router);
 app.use('/raw-data', raw_data);
 // home route
 app.get('/', (req, res) =>{
-    res.render('login', { title : "Login System"});
+    res.render('login', { title : "Login Page"});
 })
 
 app.listen(port, ()=>{ console.log("Listening to the server on http://localhost:3000")});

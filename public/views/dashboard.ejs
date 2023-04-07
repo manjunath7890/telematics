@@ -6,7 +6,7 @@
       <div class="combined">
         <div class="buttons">
           
-          <p class="value-top" ID="value-v0">00</p>
+          <p class="value-top" ID="value-v10">00</p>
         </div>
 
         <div>
@@ -22,25 +22,31 @@
           </div>
           <div class="distance">
             <p style=" color: #000;margin-right: 20px; margin-left:20px">distance:</p>
-            <p class="value-temp" ID="value-v0"><%= data.value7 %></p>
+            <p class="value-temp" ID="value-v9"></p>
             <p ID="value-name-unit">km</p>
             <p style="color: #000;margin-left:140px; margin-right: 20px;">slope:</p>
-            <p class="value-temp" ID="value-v31"><%= data.value8 %></p>
+            <p class="value-temp" ID="value-v8"></p>
           </div>
         </div>
       </div>
       <div id="map-container" class="values value-block-2 ">
         <div class="ind-val-main-temp">
           <div style="display:flex;">
-            <div class="status">online</div>
-            <div class='switch'>ON</div>
+            <div class="status" id="status"></div>
+            <div class="now">
+              <div class="time" style="font-size:20px" id="new-time"></div>
+              <div class="date" style="font-size:10px" id="new-date"></div>
+            </div>
+            
+            <button class='switch' id="variable-value" onclick="toggleVariable()">ON</button>
+            <!-- <button class='switch' id="toggle-button">OFF</button> -->
           </div>
           <a class="ind-val-2 ind-val-2-a">
             <img src="/static/assets/weather.png" alt="img" class="weatherLogo">
-            <p class="value-temperature" id="temperature"><%= data.value9 %></p>
+            <p class="value-temperature" id="value-v6"></p>
             <div>
               <p ID="value-name-unit-temp">°C</p>
-              <p class="value-humidity" id="humidity"><%= data.value10 %></p>
+              <p class="value-humidity" id="value-v7"></p>
             </div>
           </a>
 
@@ -49,7 +55,7 @@
               <p class="temp-text">Controller </p>
               <p class="temp-text">Temperature:</p>
             </div>
-            <p class="value-temp" ID="value-v3"><%= data.value5 %></p>
+            <p class="value-temp" ID="value-v5"></p>
             <p ID="value-name-unit-temp">°C</p>
           </a>
           <a class="ind-val-2 ind-val-2-m">
@@ -57,7 +63,7 @@
               <p class="temp-text">Motor </p>
               <p class="temp-text">Temperature:</p>
             </div>
-            <p class="value-temp" ID="value-v4"><%= data.value6 %></p>
+            <p class="value-temp" ID="value-v4"></p>
             <p ID="value-name-unit-temp">°C</p>
           </a>
         </div>
@@ -69,23 +75,23 @@
         <div class="ind-val-main">
           <a class="ind-val-voltage">
             <p class="parameter">voltage:</p>
-            <p class="value-bat" ID="value-v0"><%= data.value1 %></p>
+            <p class="value-bat" id="value-v0"></p>
             <p ID="value-name-unit">V</p>
           </a>
           <a class="ind-val-current">
             <p class="parameter">current:</p>
-            <p class="value-bat" ID="value-v1"><%= data.value2 %></p>
+            <p class="value-bat" ID="value-v1"></p>
             <p ID="value-name-unit">A</p>
           </a>
 
           <a class="ind-val-soc">
             <p class="parameter">power:</p>
-            <p class="value-bat" ID="value-v2"><%= data.value3 %></p>
+            <p class="value-bat" ID="value-v2"></p>
             <p ID="value-name-unit">W</p>
           </a>
           <a class="ind-val-power">
             <p class="parameter">Error-code:</p>
-            <p class="value-bat" ID="value-v33"><%= data.value4 %></p>
+            <p class="value-bat" ID="value-v3"></p>
             <p ID="value-name-unit"></p>
           </a>
         </div>
@@ -115,7 +121,6 @@
     <p ID="value-v6"></p>
   </div>
   <!-- <script src="/static/script.js"></script> -->
-  <%- include('dashboard-js') -%>
   <script>
     function toggleCSS() {
   var cssFile1 = '/static/dashboard-dark.css';
@@ -131,5 +136,5 @@
   }
 }
     </script>
-
+  <%- include('dashboard-js') -%>
   <%- include('footer') -%>

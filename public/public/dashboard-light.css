@@ -7,13 +7,22 @@
     margin-left: 10px;
     margin-right: 15px;
 }
-
+.now {
+        /* border: 1px solid black; */
+    /* background-color: white; */
+    padding: 4px 10px;
+    margin-top: 11px;
+    border-radius: 5px;
+    margin-left: 75px;
+    font-weight: bold;
+    width: 120px;
+}
 .switch {
-    border: 2px solid #ae81ff;
-    box-shadow: 0 0 1px 0px rgb(195 142 255), 0 0 7px 3px rgb(175 140 255);
-    background-color: #1a005e;
+    border: 2px solid #7124ff;
+    background-color: #ffffff;
+    box-shadow: 0 0 1px 0px rgb(119 0 255), 0 0 7px 3px rgb(121 63 255);
     border-radius: 20px;
-    padding: 0px 20px;
+    padding: 0px 10px;
     /* margin: 15px 15px; */
     font-size: 30px;
     margin-top: 15px;
@@ -21,19 +30,19 @@
     margin-right: 10px;
     margin-left: 0px;
     font-weight: bold;
+    width: 80px;
 }
 
 .status {
-    border: 2px solid #ae81ff;
-    box-shadow: 0 0 1px 0px rgb(0, 0, 0), 0 0 7px 3px rgb(0, 0, 0);
-    background-color: #ffffff;
+    border: 2px solid #6200ff;
+    background-color: #6b00ff;
+    /* box-shadow: 0 0 1px 0px rgb(0 0 0), 0 0 7px 3px rgb(98 0 255); */
     border-radius: 20px;
-    padding: 0px 6px;
+    padding: 10px 20px;
     margin: 20px 10px;
     font-size: 15px;
-    margin-left: 100px;
-    color: #000000;
-    font-weight: bold;
+    margin-left: 0px;
+    color: #ffffff;
 }
 
 .dash-title {
@@ -49,12 +58,12 @@
     /* margin-left: 200px; */
     /* margin-top: 50px; */
     /* margin-left: 210px; */
-    color: #000000;
+    color: #ffffff;
 }
 
-.container {
+/* .container {
     display: flex;
-}
+} */
 
 /* .values {
           
@@ -85,8 +94,8 @@
         display: flex;
     border: 2px solid #3100ff;
     border-radius: 10px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
+    color: rgb(0 0 0);
+    background-color: rgb(255, 255, 255);
     /* position: absolute; */
     padding-left: 10px;
     width: 220px;
@@ -99,8 +108,8 @@
         display: flex;
     border: 2px solid #3100ff;
     border-radius: 10px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
+    color: rgb(0 0 0);
+    background-color: rgb(255, 255, 255);
     /* position: absolute; */
     padding-left: 10px;
     width: 220px;
@@ -113,8 +122,8 @@
         display: flex;
     border: 2px solid #3100ff;
     border-radius: 10px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
+    color: rgb(0 0 0);
+    background-color: rgb(255, 255, 255);
     /* position: absolute; */
     padding-left: 10px;
     width: 220px;
@@ -127,8 +136,8 @@
         display: flex;
     border: 2px solid #3100ff;
     border-radius: 10px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
+    color: rgb(0 0 0);
+    background-color: rgb(255, 255, 255);
     /* position: absolute; */
     padding-left: 10px;
     width: 220px;
@@ -140,7 +149,7 @@
 .ind-val-main-temp {
         /* border: 2px solid hwb(0 33% 67%); */
         border-radius: 20px;
-        color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
         /* background-color: rgb(255, 255, 255); */
         padding-bottom: 1px;
         padding-left: 25px;
@@ -152,9 +161,10 @@
         /* margin-left: 37px; */
         /* margin-bottom: auto; */
         /* margin-top: -10px; */
-        border: 2px solid #ae81ff;
-        box-shadow: 0 0 1px 0px rgb(195 142 255), 0 0 7px 3px rgb(175 140 255);
-        background-color: #1a005e;
+        border: 2px solid #7124ff;
+        background-color: #e9e9e9;
+        box-shadow: 0 0 1px 0px rgb(119 0 255), 0 0 7px 3px rgb(121 63 255);
+        background-color: #cdbaff;
 }
 
 .ind-val-2 {
@@ -162,7 +172,7 @@
     padding-left: 10px;
     border-radius: 15px;
     margin: 13px 10px;
-    background-color: #000000;
+    background-color: #ffffff;
     padding: 5px;
     box-shadow: 0 0 8px rgb(201 0 255), 0 0 20px rgba(76, 0, 255);
 }
@@ -200,7 +210,7 @@
 .ind-val-guage-slope {
     /* border: 2px solid #6a6a6a; */
     /* border-radius: 5px; */
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     /* background-color: rgb(30 30 30); */
     padding-bottom: 5px;
     padding-top: 10px;
@@ -208,15 +218,16 @@
     margin-top: auto;
     margin-bottom: 3px;
     border-radius: 20px;
-    border: 2px solid #ae81ff;
-    box-shadow: 0 0 1px 0px rgb(195 142 255), 0 0 7px 3px rgb(175 140 255);
-    background-color: #1a005e;
+    border: 2px solid #7124ff;
+    background-color: #e9e9e9;
+    box-shadow: 0 0 1px 0px rgb(119 0 255), 0 0 7px 3px rgb(121 63 255);
+    background-color: #cdbaff;
 }
 
 .ind-val-guage-speed {
     /* border: 2px solid #6a6a6a; */
     /* border-radius: 5px; */
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     /* background-color: rgb(30 30 30); */
     padding-bottom: 5px;
     padding-top: 10px;
@@ -224,9 +235,10 @@
     margin-top: auto;
     margin-bottom: 3px;
     border-radius: 20px;
-    border: 2px solid #ae81ff;
-    box-shadow: 0 0 1px 0px rgb(195 142 255), 0 0 7px 3px rgb(175 140 255);
-    background-color: #1a005e;
+    border: 2px solid #7124ff;
+    background-color: #e9e9e9;
+    box-shadow: 0 0 1px 0px rgb(119 0 255), 0 0 7px 3px rgb(121 63 255);
+    background-color: #cdbaff;
 }
 
 /* .ind-val-guage-soc {
@@ -273,7 +285,7 @@
 }
 
 body {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 253, 253);
 }
 
 .value-bat {
@@ -294,7 +306,7 @@ body {
     padding-bottom: 0px;
     font-family: Arial, sans-serif;
     font-weight: 1000;
-    color: #ffffff;
+    color: #000;
     /* margin: auto; */
     padding-left: 10px;
 }
@@ -303,11 +315,11 @@ body {
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 10px;
-    color: #ffffff;
+    color: #000;
 }
 
 #value-name-unit-temp {
-    color: #ffffff;
+    color: #000;
     margin-left: 15px;
     margin-right: 10px;
     padding: 8px;
@@ -359,9 +371,10 @@ body {
     /* background-color: #3a3a3a; */
     margin-left: 3px;
     border-radius: 20px;
-    border: 2px solid #ae81ff;
-    box-shadow: 0 0 1px 0px rgb(195 142 255), 0 0 7px 3px rgb(175 140 255);
-    background-color: #1a005e;
+    border: 2px solid #7124ff;
+    background-color: #e9e9e9;
+    box-shadow: 0 0 1px 0px rgb(119 0 255), 0 0 7px 3px rgb(121 63 255);
+    background-color: #cdbaff;
 }
 
 .buttons {
@@ -369,9 +382,10 @@ body {
     margin-left: 3px;
     margin-bottom: 3px;
     border-radius: 20px;
-    border: 2px solid #ae81ff;
-    box-shadow: 0 0 1px 0px rgb(195 142 255), 0 0 7px 3px rgb(175 140 255);
-    background-color: #1a005e;
+    border: 2px solid #7124ff;
+    background-color: #e9e9e9;
+    box-shadow: 0 0 1px 0px rgb(119 0 255), 0 0 7px 3px rgb(121 63 255);
+    background-color: #cdbaff;
     min-height: 101px;
 }
 
@@ -386,11 +400,11 @@ p {
 }
 
 a {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
 a:hover {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     text-decoration: none;
     /* box-shadow: 0 0 8px rgb(201 0 255), 0 0 20px rgba(76, 0, 255); */
 }
@@ -415,10 +429,10 @@ a:hover {
 }
 
 #gauge {
-    width: 300px;
+    width: 299px;
     height: 300px;
     margin: 0 auto;
-    position: relative;
+    /* position:sticky; */
     /* border-radius: 50%; */
     /* border: 5px solid #59c4ff; */
     /* box-shadow: 0 0 10px 5px rgba(0, 0, 255, 0.5); */
@@ -430,13 +444,13 @@ a:hover {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
-    position: absolute;
+    /* position: absolute; */
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
     line-height: 1.2;
-    color: #000000;
+    color: #ffffff;
     text-shadow: 1px 1px #000000, -1px -1px #000000, -1px 1px #000000, 1px -1px #000000;
 }
 
@@ -444,7 +458,7 @@ a:hover {
     font-size: 36px;
     font-weight: bold;
     text-align: center;
-    position: absolute;
+    /* position: absolute; */
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -457,7 +471,7 @@ a:hover {
 #gauge .min {
     font-size: 14px;
     text-align: left;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
     left: 0;
     color: #000000;
@@ -466,7 +480,7 @@ a:hover {
 #gauge .max {
     font-size: 14px;
     text-align: right;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
     right: 0;
     color: #000000;
@@ -488,9 +502,9 @@ a:hover {
     margin-left: 3px;
     padding: 9px 30px;
     border-radius: 20px;
-    border: 2px solid #ae81ff;
-    box-shadow: 0 0 1px 0px rgb(195 142 255), 0 0 7px 3px rgb(175 140 255);
-    background-color: #1a005e;
+    border: 2px solid #7124ff;
+    box-shadow: 0 0 1px 0px rgb(119 0 255), 0 0 7px 3px rgb(121 63 255);
+    background-color: #cdbaff;
 }
 
 .circle {
@@ -499,15 +513,17 @@ a:hover {
     border-radius: 50%;
     box-shadow: 0 0 11px 2px rgb(195, 0, 255), 0 0 7px 1px rgb(132, 0, 255);
 }
-/* .value-top {
+.value-top {
     margin-bottom: 43px;
-    height: auto;
-} */
-
+}
+.parameter {
+    font-size: 10px;
+    font-weight: bold;
+}
 .maps {
-    border: 2px solid #ae81ff;
-    box-shadow: 0 0 1px 0px rgb(195 142 255), 0 0 7px 3px rgb(175 140 255);
-    background-color: #1a005e;
+    border: 2px solid #7124ff;
+    background-color: #ffffff;
+    box-shadow: 0 0 1px 0px rgb(119 0 255), 0 0 7px 3px rgb(121 63 255);
     border-radius: 20px;
     margin-left: 3px;
     width: 557px;
@@ -517,11 +533,7 @@ a:hover {
 .graph-border {
     margin-left: 3px;
     border-radius: 20px;
-    border: 2px solid #ae81ff;
-    box-shadow: 0 0 1px 0px rgb(195 142 255), 0 0 7px 3px rgb(175 140 255);
-    background-color: #1a005e;
-}
-.parameter {
-    font-size: 10px;
-    /* font-weight: bold; */
+    border: 2px solid #7124ff;
+    box-shadow: 0 0 1px 0px rgb(119 0 255), 0 0 7px 3px rgb(121 63 255);
+    background-color: #ffffff;
 }

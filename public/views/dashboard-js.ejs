@@ -1,4 +1,5 @@
-<script>
+<Script>
+    
 var time = [];
 var voltage = [];
 var current = [];
@@ -9,25 +10,70 @@ var distance = [];
 var slope = [];
 var c_temp = [];
 var m_temp = [];
-var pin_val = [65,656,454,34,6,7,5,4,3,3,2,3];
-let temperature;
-let humidity;
-let getData;
+var pin_val = [];
+// let temperature;
+// let humidity;
+// let getData;
+// let newData = [];
+let variable = false; // The variable you want to toggle
+let nowtime , nowdate;
 
-function dd(){
-fetch('/route/dashboardd')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-    getData = data;
-    console.log(getData);
-    console.log(getData.value8);
+      function toggleVariable() {
+        variable = !variable; // Invert the variable's value
+        if(variable){
+          document.getElementById("variable-value").textContent = 'ON'; // Update the display
+          sendVariableToServer(variable); // Send the variable to the server
+        } else {
+          document.getElementById("variable-value").textContent ='OFF' ; // Update the display
+          sendVariableToServer(variable); // Send the variable to the server
+        }
+      }
+
+      function sendVariableToServer(variable) {
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "/raw-data/button", true); // Send a POST request to the server
+        xhttp.setRequestHeader("Content-type", "application/json"); // Set the request header
+        xhttp.onreadystatechange = function() {
+          if (this.readyState === 4 && this.status === 200) {
+            console.log(this.responseText); // Log the server response
+          }
+        };
+        xhttp.send(JSON.stringify({ variable })); // Send the variable as JSON data
+      }
+
+function elementData(){
+    for(i=0;i<11;i++){
+    const voltageData = document.querySelector(`#value-v${i}`);
+    voltageData.innerHTML=pin_val[i];
+    // console.log(voltageData);
+    }
+    const nowDate = document.querySelector(`#new-date`);
+    nowDate.innerHTML = nowdate;
+
+    const nowTime = document.querySelector(`#new-time`);
+    nowTime.innerHTML = nowtime;
+
+    const status = document.querySelector(`#status`);
     
-  })
-  .catch(error => console.error(error));
+    if(pin_val[19] == 1){
+    status.style.backgroundColor = '#ffffff';
+    } else {
+    status.style.backgroundColor = '#6b00ff';
+    }
+    
 }
 
 
+function rawData(){
+        $.get('/raw-data/variables', data => {
+          const variables = data.variables;
+          pin_val = variables[0].split(' ');
+            console.log(pin_val);
+            // console.log(pin_val[1]);
+            // console.log(pin_val[3]);
+
+        });
+      }
 
 
 
@@ -357,7 +403,7 @@ var gauge1 = new JustGage({
   shadowSize: 12,
   shadowVerticalOffset: 6,
   counter: true,
-  // animationDuration: 2500,
+  animationDuration: 2500,
   donut: true,
   pointer: true,
   pointerOptions: {
@@ -375,13 +421,22 @@ setInterval(function () {
   var hours = now.getHours();
   var minutes = now.getMinutes();
   var seconds = now.getSeconds();
-  var nowtime = hours + ":" + minutes + ":" + seconds;
-  dd();
+  nowtime = hours + ":" + minutes + ":" + seconds;
+
+  var year = now.getFullYear();
+  var month = now.getMonth();
+  var day = now.getDate();
+  nowdate = day + "/" + month + "/" + year;
+  
+  rawData();
+  elementData();
+
   handleNewData(nowtime, pin_val[0], pin_val[1], pin_val[2], pin_val[6], pin_val[7], pin_val[9], pin_val[3], pin_val[4], pin_val[8]);
-  gauge2.refresh(getData.value5);
-  gauge3.refresh(getData.value6);
-  gauge1.refresh(getData.value3);
+  gauge2.refresh(pin_val[0]);
+  gauge3.refresh(pin_val[1]);
+  gauge1.refresh(pin_val[2]);
 }, 1000);
 // }
 // setInterval(dd, 10);
-</script>
+
+</Script>

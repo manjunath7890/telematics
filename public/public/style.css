@@ -54,29 +54,33 @@ form{
 }
 
 .element-about{
-    margin-left: 700px;
-    color: #d1d1d1;
+    margin-left: 650px;
+    color: #ffffff;
     font-size: 15px;
 }
 
 .element-logout{
     color: black;
-    border: 1px solid #ffffff;
+    border: 1px solid #000000;
     border-radius: 16px;
     padding: 2px 7px;
     font-size: 13px;
-    background-color: #dfdfdf;
+    background-color: #ffffff;
     font-weight: bolder;
+    padding-bottom: 5px;
 }
+
 
 .element-user{
     font-size: 13px;
-    color: #8c00ff;
+    color: #6a00c2;
     background-color: #d4b9ff;
     padding: 2px 10px;
     border-radius: 5px;
     margin-left: 45px;
     margin-right: 5px;
+    border: 1px solid black;
+    padding-bottom: 5px;
 }
 
 .container-edit {
@@ -93,7 +97,7 @@ form{
     text-align: center;
     justify-content: center;
     align-items: center;
-    display: flex;
+    /* display: flex; */
 }
 .element-dash:hover {
     background-color: rgb(255, 255, 255);
